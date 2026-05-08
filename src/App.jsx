@@ -33,7 +33,6 @@ import demoVideo from "./assets/xiazaimang-demo.mp4";
 
 const slides = [
   { id: "hero", title: "虾在忙", nav: "定位" },
-  { id: "scene", title: "业务场景", nav: "场景" },
   { id: "demo", title: "产品演示", nav: "演示" },
   { id: "loop", title: "OpenClaw 架构", nav: "架构" },
   { id: "safe", title: "可控执行", nav: "安全" },
@@ -60,10 +59,10 @@ const positioningCards = [
 ];
 
 const metrics = [
-  ["134", "工单样本", "真实支持流量"],
-  ["50", "提问角色", "跨团队需求"],
-  ["70", "已解决", "有经验可复用"],
-  ["60", "解决方案", "可转 FAQ 资产"],
+  ["16天", "持续运行", "4.22 上线至今"],
+  ["134", "工单处理", "真实支持流量"],
+  ["50+", "服务用户", "跨团队覆盖"],
+  ["48次", "自动操作", "API 调用执行"],
 ];
 
 const scenarioTags = [
@@ -184,45 +183,6 @@ function SlideFrame({ eyebrow, page, children, footer }) {
 }
 
 function HeroSlide() {
-  return (
-    <SlideFrame eyebrow="OpenClaw AI Workflow Agent" page="01" footer="OpenClaw 编排层 + 飞书群入口 + 工单/审批/API/知识库">
-      <div className="hero-slide">
-        <div className="hero-copy">
-          <div className="title-pill">
-            <Bot size={18} />
-            基于 OpenClaw 的飞书群支持 Agent
-          </div>
-          <h1>虾在忙</h1>
-          <p>面向运营、师资中台小程序问题反馈群，将课程、订单、权限、课节等支持请求自动识别、转工单、回写状态并沉淀知识。</p>
-          <div className="hero-actions">
-            {positioningCards.map(({ icon: Icon, title, text }) => (
-              <div className="action-chip" key={title}>
-                <Icon size={20} />
-                <strong>{title}</strong>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-image">
-            <img src={mascotHero} alt="虾在忙主形象" />
-          </div>
-          <div className="floating-card card-a">
-            <MessagesSquare size={18} />
-            OpenClaw 接入群消息
-          </div>
-          <div className="floating-card card-b">
-            <ShieldCheck size={18} />
-            工单状态回写群聊
-          </div>
-        </div>
-      </div>
-    </SlideFrame>
-  );
-}
-
-function SceneSlide() {
   const messages = [
     "学生小程序看不到课程，帮忙排查？",
     "新人账号需要开通排课权限。",
@@ -233,11 +193,15 @@ function SceneSlide() {
   ];
 
   return (
-    <SlideFrame eyebrow="Business Support Scenario" page="02" footer="业务场景：运营、师资与教务在支持群中反馈中台小程序问题">
-      <div className="scene-slide">
-        <div>
-          <h2>先解决一个高频场景：中台小程序支持群</h2>
-          <p className="slide-lead">运营、师资与教务同学在飞书群里反馈课程、订单、权限、课节和回放问题；虾在忙把这些非结构化请求转成可跟进的处理链路。</p>
+    <SlideFrame eyebrow="OpenClaw AI Workflow Agent" page="01" footer="OpenClaw 编排层 + 飞书群入口 + 工单/审批/API/知识库">
+      <div className="hero-slide">
+        <div className="hero-copy">
+          <div className="title-pill">
+            <Bot size={18} />
+            基于 OpenClaw 的飞书群支持 Agent
+          </div>
+          <h1>虾在忙</h1>
+          <p>面向运营、师资中台小程序问题反馈群，将课程、订单、权限、课节等支持请求自动识别、转工单、回写状态并沉淀知识。</p>
           <div className="business-strip">
             {scenarioTags.map(([title, text]) => (
               <div key={title}>
@@ -258,17 +222,18 @@ function SceneSlide() {
             </div>
           </div>
         </div>
-        <div className="metric-wall">
-          {metrics.map(([num, label, desc]) => (
-            <div className="metric-card" key={label}>
-              <strong>{num}</strong>
-              <span>{label}</span>
-              <p>{desc}</p>
-            </div>
-          ))}
-          <div className="screen-stack">
-            <img src={dataScreen1} alt="业务系统截图 1" />
-            <img src={dataScreen2} alt="业务系统截图 2" />
+        <div className="hero-visual">
+          <div className="hero-image">
+            <img src={mascotHero} alt="虾在忙主形象" />
+          </div>
+          <div className="metric-wall">
+            {metrics.map(([num, label, desc]) => (
+              <div className="metric-card" key={label}>
+                <strong>{num}</strong>
+                <span>{label}</span>
+                <p>{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -284,7 +249,7 @@ function DemoSlide() {
   ];
 
   return (
-    <SlideFrame eyebrow="Recorded Product Flow" page="03" footer="真实支持群中的问题承接、工单同步与处理结果回写">
+    <SlideFrame eyebrow="Recorded Product Flow" page="02" footer="真实支持群中的问题承接、工单同步与处理结果回写">
       <div className="demo-slide">
         <div className="demo-player">
           <div className="video-chrome">
@@ -322,7 +287,7 @@ function DemoSlide() {
 
 function LoopSlide() {
   return (
-    <SlideFrame eyebrow="OpenClaw Workflow Engine" page="04" footer="OpenClaw 负责连接入口、工具与业务系统；虾在忙负责具体场景策略">
+    <SlideFrame eyebrow="OpenClaw Workflow Engine" page="03" footer="OpenClaw 负责连接入口、工具与业务系统；虾在忙负责具体场景策略">
       <div className="loop-slide">
         <div className="visual-backdrop">
           <img src={workflowVisual} alt="虾在忙工作流视觉" />
@@ -362,7 +327,7 @@ function LoopSlide() {
 
 function SafeSlide() {
   return (
-    <SlideFrame eyebrow="Controlled Execution" page="05" footer="企业 AI 的关键不是无限自动，而是在安全边界内自动">
+    <SlideFrame eyebrow="Controlled Execution" page="04" footer="企业 AI 的关键不是无限自动，而是在安全边界内自动">
       <div className="safe-slide">
         <div className="safe-visual">
           <img src={securityVisual} alt="虾在忙审批安全视觉" />
@@ -406,7 +371,7 @@ function SafeSlide() {
 
 function ScaleSlide() {
   return (
-    <SlideFrame eyebrow="Scale The Agent" page="06" footer="从技术支持群开始，扩展到所有高频支持场景">
+    <SlideFrame eyebrow="Scale The Agent" page="05" footer="从技术支持群开始，扩展到所有高频支持场景">
       <div className="scale-slide">
         <div className="scale-copy">
           <h2>让每个支持群都有一个 AI 一线协作员</h2>
@@ -463,9 +428,6 @@ export default function App() {
       <div className="slides-track" style={trackStyle}>
         <div className="slide-cell" style={slideStyle}>
           <HeroSlide />
-        </div>
-        <div className="slide-cell" style={slideStyle}>
-          <SceneSlide />
         </div>
         <div className="slide-cell" style={slideStyle}>
           <DemoSlide />
