@@ -827,12 +827,64 @@ h3 {
   line-height: 1.45;
 }
 
-.loop-slide,
+.loop-slide {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(640px, 1.1fr) minmax(420px, 0.9fr);
+  gap: 28px;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
 .safe-slide {
   position: relative;
   height: 100%;
   overflow: hidden;
   border-radius: 18px;
+}
+
+.arch-video-player {
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 46px minmax(0, 1fr);
+  border: 1px solid rgba(0, 240, 255, 0.34);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(0, 240, 255, 0.08), transparent 22%),
+    rgba(0, 0, 0, 0.48);
+  box-shadow: var(--shadow), 0 0 80px rgba(0, 240, 255, 0.18);
+}
+
+.arch-video-player::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 140deg, transparent, rgba(0, 240, 255, 0.14), transparent, rgba(255, 77, 0, 0.12), transparent);
+  animation: panelOrbit 10s linear infinite;
+  opacity: 0.65;
+}
+
+.arch-video-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  height: 100%;
+  padding: 12px;
+}
+
+.arch-video-stage video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: #010308;
 }
 
 .visual-backdrop,
@@ -863,7 +915,8 @@ h3 {
 .loop-copy {
   position: relative;
   z-index: 2;
-  padding: 34px 34px 0;
+  align-self: center;
+  min-width: 0;
 }
 
 .flow-map {
