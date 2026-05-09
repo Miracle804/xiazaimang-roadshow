@@ -294,8 +294,8 @@ function LoopSlide() {
           <div className="visual-shade" />
         </div>
         <div className="loop-copy">
-          <h2>用 OpenClaw 把群聊入口编排成工作流</h2>
-          <p className="slide-lead">虾在忙基于 OpenClaw 构建：从飞书群接入消息，编排识别、工单、审批、API 和知识库节点，让一次群聊求助进入可追踪闭环。</p>
+          <h2>OpenClaw 编排群聊工作流</h2>
+          <p className="slide-lead">将群聊消息编排为可追踪的工作流闭环</p>
         </div>
         <div className="openclaw-band">
           <div className="openclaw-mark">
