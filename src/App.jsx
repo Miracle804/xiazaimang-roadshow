@@ -373,9 +373,15 @@ function ScaleSlide() {
   return (
     <SlideFrame eyebrow="Scale The Agent" page="05" footer="从技术支持群开始，扩展到所有高频支持场景">
       <div className="scale-slide">
-        <div className="scale-copy">
-          <h2>让每个支持群都有一个 AI 一线协作员</h2>
-          <p className="slide-lead">虾在忙的终点不是多一个群机器人，而是一套可复制的内部 AI 工作流模板。</p>
+        <div className="scale-bg">
+          <img src={orgNetworkVisual} alt="AI 工作流连接多个支持团队" />
+          <div className="scale-bg-shade" />
+        </div>
+        <div className="scale-content">
+          <div className="scale-header">
+            <h2>让每个支持群都有一个<br />AI 一线协作员</h2>
+            <p className="slide-lead">虾在忙的终点不是多一个群机器人，而是一套可复制的内部 AI 工作流模板。</p>
+          </div>
           <div className="value-grid">
             {valueCards.map(([role, title, text]) => (
               <div className="value-card" key={role}>
@@ -385,25 +391,24 @@ function ScaleSlide() {
               </div>
             ))}
           </div>
-          <div className="roadmap">
-            {[
-              ["NOW", "核心闭环"],
-              ["01", "打磨高频场景"],
-              ["02", "复制更多支持群"],
-              ["03", "形成协作中枢"],
-            ].map(([phase, title]) => (
-              <div className="road-step" key={phase}>
-                <span>{phase}</span>
-                <strong>{title}</strong>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="final-card">
-          <img src={orgNetworkVisual} alt="AI 工作流连接多个支持团队" />
-          <div>
-            <ChartNoAxesCombined size={22} />
-            从一个群的闭环，复制成多个团队共享的 AI 协作中枢。
+          <div className="scale-bottom">
+            <div className="roadmap">
+              {[
+                ["NOW", "核心闭环"],
+                ["01", "打磨高频场景"],
+                ["02", "复制更多支持群"],
+                ["03", "形成协作中枢"],
+              ].map(([phase, title]) => (
+                <div className="road-step" key={phase}>
+                  <span>{phase}</span>
+                  <strong>{title}</strong>
+                </div>
+              ))}
+            </div>
+            <div className="scale-closing">
+              <ChartNoAxesCombined size={20} />
+              <span>从一个群的闭环，复制成多个团队共享的 AI 协作中枢。</span>
+            </div>
           </div>
         </div>
       </div>
