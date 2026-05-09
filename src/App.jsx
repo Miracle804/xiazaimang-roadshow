@@ -30,7 +30,6 @@ import orgNetworkVisual from "./assets/org-network-visual.png";
 import dataScreen1 from "./assets/data-screen-1.jpg";
 import dataScreen2 from "./assets/data-screen-2.jpg";
 import demoVideo from "./assets/xiazaimang-demo.mp4";
-import archFlowVideo from "./assets/arch-flow.mp4";
 
 const slides = [
   { id: "hero", title: "虾在忙", nav: "定位" },
@@ -290,34 +289,36 @@ function LoopSlide() {
   return (
     <SlideFrame eyebrow="OpenClaw Workflow Engine" page="03" footer="OpenClaw 负责连接入口、工具与业务系统；虾在忙负责具体场景策略">
       <div className="loop-slide">
-        <div className="arch-video-player">
-          <div className="video-chrome">
-            <span />
-            <span />
-            <span />
-            <strong>arch-flow · HyperFrames</strong>
-            <em>18s</em>
-          </div>
-          <div className="arch-video-stage">
-            <video src={archFlowVideo} autoPlay muted loop playsInline preload="metadata" />
-          </div>
+        <div className="visual-backdrop">
+          <img src={workflowVisual} alt="虾在忙工作流视觉" />
+          <div className="visual-shade" />
         </div>
         <div className="loop-copy">
           <h2>用 OpenClaw 把群聊入口编排成工作流</h2>
           <p className="slide-lead">虾在忙基于 OpenClaw 构建：从飞书群接入消息，编排识别、工单、审批、API 和知识库节点，让一次群聊求助进入可追踪闭环。</p>
-          <div className="openclaw-band">
-            <div className="openclaw-mark">
-              <Workflow size={22} />
-              <strong>OpenClaw Framework</strong>
-              <span>Gateway / Agent / Tool Nodes</span>
+        </div>
+        <div className="openclaw-band">
+          <div className="openclaw-mark">
+            <Workflow size={22} />
+            <strong>OpenClaw Framework</strong>
+            <span>Gateway / Agent / Tool Nodes</span>
+          </div>
+          <p>框架层统一承接消息入口、工具调用和执行记录；业务层定义问题分类、工单规则、审批边界和回写策略。</p>
+        </div>
+        <div className="flow-map">
+          {flowNodes.map(({ icon: Icon, label, text }, idx) => (
+            <div className={label === "OpenClaw" ? "flow-node core" : "flow-node"} key={label} style={{ "--delay": `${idx * 0.18}s` }}>
+              <Icon size={24} />
+              <strong>{label}</strong>
+              <span>{text}</span>
+              {idx < flowNodes.length - 1 && <ChevronRight className="flow-arrow" size={18} />}
             </div>
-            <p>框架层统一承接消息入口、工具调用和执行记录；业务层定义问题分类、工单规则、审批边界和回写策略。</p>
-          </div>
-          <div className="module-strip">
-            {["OpenClaw Gateway", "Agent Workflow", "Tool Nodes", "Approval Gate", "Business API / FAQ"].map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
+          ))}
+        </div>
+        <div className="module-strip">
+          {["OpenClaw Gateway", "Agent Workflow", "Tool Nodes", "Approval Gate", "Business API / FAQ"].map((item) => (
+            <span key={item}>{item}</span>
+          ))}
         </div>
       </div>
     </SlideFrame>
